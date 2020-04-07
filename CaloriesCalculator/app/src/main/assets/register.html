@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Register</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/my-custom-theme.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="css/my-custom-theme.min.css"/>
+    <link rel="stylesheet"
+          href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+<body>
+<style>
+
+    body {
+        background: transparent;
+        color: none;
+        background-image: url('background.jpg');
+
+    }
+
+</style>
+<div data-role="page" id="register" data-theme="a" data-dom-cache="true">
+    <p><b><h2>Create Account</h2></b>
+    <h3> ID: </h3><input type="number" data-inline="true" name="userid" id="id" min="100000000"
+                         max="999999999" size="35">
+    <h3> Name: </h3><input type="text" data-inline="true" name="username" id="name" size="35">
+    <h3> Weight (Kg):</h3> <input type="number" name="userweight" id="weight" min="40" max="250"
+                                  size="35">
+
+    <h3>Height (cm): </h3> <input type="number" name="userheight" id="height" min="120" max="220"
+                                  size="35"><br>
+    <p>
+    <h3>Please select your gender:</h3></p>
+
+    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+        <input type="radio" name="usergender" id="gender_male" value="Male" checked="checked">
+        <label for="gender_male">Male</label>
+        <input type="radio" name="usergender" id="gender_female" value="Female">
+        <label for="gender_female">Female</label>
+    </fieldset>
+
+    <h3>Age: </h3><input type="range" name="userage" id="age" min="18" max="120"><br>
+    <a class="ui-btn ui-btn-inline ui-btn-w" onclick="IfExist()">Register</a>
+</div>
+
+<script>
+
+    function IfExist() {
+        var id = document.getElementById("id").value;
+        window.vm.registerUserExist(id);
+    }
+
+
+    function AddUser(exist) {
+
+        if (exist == "false") {
+            var id = document.getElementById("id").value;
+            var name = document.getElementById("name").value;
+            var weight = document.getElementById("weight").value;
+            var height = document.getElementById("height").value;
+            if (document.getElementById("gender_male").checked) {
+                var gender = document.getElementById("gender_male").value;
+            } else {
+                var gender = document.getElementById("gender_female").value;
+            }
+            var age = document.getElementById("age").value;
+            if (id != "" && weight != "" && name != "" && height != "" && gender != "" && age != "") {
+                window.vm.validInputs(id, weight, height);
+            } else {
+                alert("please fill al the fields!")
+            }
+
+        }
+    }
+
+    function IfvalidUser(boolIfValid) {
+        if (boolIfValid == "true") {
+            var id = document.getElementById("id").value;
+            var name = document.getElementById("name").value;
+            var weight = document.getElementById("weight").value;
+            var height = document.getElementById("height").value;
+            if (document.getElementById("gender_male").checked) {
+                var gender = document.getElementById("gender_male").value;
+            } else {
+                var gender = document.getElementById("gender_female").value;
+            }
+            var age = document.getElementById("age").value;
+            window.vm.putUsers(id, name, weight, height, gender, age);
+            location.href = 'login.html';
+        } else {
+            alert("please fill properly all the fields!");
+        }
+
+
+    }
+
+</script>
+
+</body>
+</html>

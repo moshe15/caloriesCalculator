@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calories</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/my-custom-theme.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="css/my-custom-theme.min.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+<style>
+    body {
+        background: transparent;
+        color: none;
+        background-image: url('background.jpg');
+    }
+
+</style>
+<div data-role="page" id="CaloriesScreen" data-theme="a" data-dom-cache="true">
+    <div data-role="panel" data-position="right" id="side-panel">
+        <ul data-role="listview">
+            <li data-icon="delete"><a href="#" data-rel="close" id="closePanel">Close</a></li>
+            <li><a href="" onclick="aboutApp()" data-ajax="false"> About our app</a></li>
+            <li><a href="" onclick="howToUse()" data-ajax="false"> How to use our app</a></li>
+        </ul>
+    </div><!-- /panel -->
+    <div data-role="header" id="head">
+        <a href="#side-panel" class="ui-btn-right" data-icon="bars" data-iconpos="notext"
+           data-shadow="false" data-iconshadow="false">Menu</a>
+    </div>
+
+    <div data-role="main" class="ui-content" style="...">
+        <p><b><h2>Maximum calories: 1500</h2></b>
+        <p><b>Calories until now:</b>
+            <output type="text" id="calc" name="calc"></output>
+        </p>
+        <b><h2>what you ate until now:</h2></b>
+        <font color="black" size="4">
+            <b>Breakfast: </b>
+        </font>
+
+        <output type="text" id="breakfast" name="breakfast"></output>
+        </p>
+        <br>
+        <font color="black" size="4">
+            <b>Lunch: </b>
+        </font>
+        <output type="text" id="lunch" name="lunch"></output>
+        </p>
+        <br>
+        <font color="black" size="4">
+            <b>Dinner: </b>
+        </font>
+        <output type="text" id="dinner" name="dinner"></output>
+        </p>
+        <br>
+        <font color="black" size="4">
+            <b>Snacks: </b>
+        </font>
+        <output type="text" id="snacks" name="snacks"></output>
+        </p>
+        <br>
+
+        <font color="black" size="5"><p><b>Add Meal:</b></p></font>
+
+        <a href="" class="ui-btn ui-btn-inline ui-btn-b" onclick="getTime('Breakfast')"
+           data-ajax="false">Breakfast</a>
+        <a href="" class="ui-btn ui-btn-inline ui-btn-b" onclick="getTime('Lunch')"
+           data-ajax="false">Lunch</a>
+        <a href="" class="ui-btn ui-btn-inline ui-btn-b" onclick="getTime('Dinner')"
+           data-ajax="false">Dinner</a>
+        <a href="" class="ui-btn ui-btn-inline ui-btn-b" onclick="getTime('Snacks')"
+           data-ajax="false">Snacks</a>
+        <br>
+        <br>
+        <a href="login.html" class="ui-btn ui-btn-inline ui-btn-b" data-ajax="false">Logout</a>
+
+    </div>
+</div>
+</body>
+
+
+<script>
+
+
+    var response = decodeURIComponent(window.location.search);
+    var que = response.substring(1, response.length);
+    var queries = que.split("?");
+    var idUser = queries[0];
+    var calories = queries[1];
+    if (queries[2] == "Breakfast" || queries[2] == "Dinner" || queries[2] == "Lunch" || queries[2] == "Snacks") {
+        var BreakfastList = queries[3].substring(0, queries[3].length - 1);
+        var LunchList = queries[4].substring(0, queries[4].length - 1);
+        var DinnerList = queries[5].substring(0, queries[5].length - 1);
+        var SnacksList = queries[6].substring(0, queries[6].length - 1);
+    } else {
+        var BreakfastList = queries[2].substring(0, queries[2].length - 1);
+        var LunchList = queries[3].substring(0, queries[3].length - 1);
+        var DinnerList = queries[4].substring(0, queries[4].length - 1);
+        var SnacksList = queries[5].substring(0, queries[5].length - 1);
+    }
+
+    document.getElementById("calc").value = calories;
+    if (parseInt(document.getElementById("calc").value) > 1500) {
+        document.getElementById("calc").style.color = "red";
+
+    }
+
+    document.getElementById("breakfast").value = BreakfastList;
+    document.getElementById("lunch").value = LunchList;
+    document.getElementById("dinner").value = DinnerList;
+    document.getElementById("snacks").value = SnacksList;
+
+
+    function getTime(ob) {
+        var response = decodeURIComponent(window.location.search);
+        var que = response.substring(1, response.length);
+        var queries = que.split("?");
+        var idUser = queries[0];
+        var calories = queries[1];
+        document.getElementById("calc").value = calories;
+        if (parseInt(document.getElementById("calc").value) > 1500) {
+            document.getElementById("calc").style.color = "red";
+        }
+        window.location.href = 'AddMeal.html' + "?" + idUser + "?" + calories + "?" + ob;
+    }
+
+    function aboutApp() {
+        var response = decodeURIComponent(window.location.search);
+        window.location.href = 'AboutTheAplication.html' + response;
+    }
+
+    function howToUse() {
+        var response = decodeURIComponent(window.location.search);
+        window.location.href = 'HowToUse.html' + response;
+    }
+
+
+</script>
+</body>
+</html>

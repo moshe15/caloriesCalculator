@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/my-custom-theme.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="css/my-custom-theme.min.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<style>
+    body {
+        background: transparent;
+        color: none;
+        background-image: url('background.jpg');
+    }
+
+
+</style>
+<div id="about" data-role="page">
+    <div data-role="content">
+        <font size="6.5">
+            <p><b>About Our Application - calories calculator!</b></p></font>
+        <font color="black" size="4" face="Charcoal">
+            <b>
+
+
+                <p> Hi,</P>
+                <p> With our app you can be in control on the amount of calories you eating during
+                    the day.
+                    In our experience, it helps to maintain a healthy lifestyle and helps those who
+                    want to lose weight.</p>
+                <p>we hope you will enjoy from our app and get the best of it.</p>
+                <p><br>
+                    Mor, Chen and Moshiko ☺.
+                </p>
+            </b>
+        </font>
+
+
+        <a href="" class="ui-btn ui-btn-inline ui-btn-w" onclick="goBack()"
+           data-ajax="false">Back</a>
+    </div>
+
+
+</div>
+
+<script>
+
+    function goBack() {
+        var response = decodeURIComponent(window.location.search);
+        window.location.href = 'CaloriesScreen.html' + response;
+    }
+
+
+</script>
+
+
+</body>
+</html>

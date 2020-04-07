@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <title>Calories</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/my-custom-theme.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="css/my-custom-theme.min.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+<body>
+<style>
+
+    body {
+        background: transparent;
+        color: none;
+        background-image: url('background.jpg');
+
+    }
+
+</style>
+<div data-role="page" id="AddMeal" data-theme="a" data-dom-cache="true">
+    <div>
+        <br>
+    </div>
+    <p><b><h2>Please Choose A Meal Type:</h2></b>
+        <a href="" class="ui-btn ui-btn-inline ui-btn-b" onclick="getFood('meat')" id="meat"
+           style=" text-align: center;align: middle;height: 50px; width: 400px" data-ajax="false">Meat</a>
+
+        <a href="" class="ui-btn ui-btn-inline ui-btn-b" onclick="getFood('milk')" id="milk"
+           style=" text-align: center;align: middle; height: 50px; width: 400px" data-ajax="false">Milk</a>
+    <p>
+        <a href="" class="ui-btn ui-btn-inline ui-btn-b" onclick="getFood('fruit')" id="fruit"
+           style="text-align: center;align: middle; height: 50px; width: 400px" data-ajax="false">Fruit</a>
+        <a href="" class="ui-btn ui-btn-inline ui-btn-b" onclick="getFood('vegetables')"
+           id="vegetables" style="  text-align: center;align: middle;height: 50px; width: 400px"
+           data-ajax="false">Vegetables</a>
+    </p>
+    <p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </p>
+    <a href="" class="ui-btn ui-btn-inline ui-btn-b" onclick="GoBack()"
+       style="text-align: center;align: middle;height: 50px; width: 400px"
+       data-ajax="false">Back</a>
+    <p>
+
+
+    </p>
+</div>
+
+<script>
+
+    function GoBack() {
+        var queryStringIdTimeCal = decodeURIComponent(window.location.search);
+        var queryS = queryStringIdTimeCal.substring(1, queryStringIdTimeCal.length);
+        var queries = queryS.split("?");
+        window.vm.AllMealsPerUser(queries[0])
+
+    }
+
+    function GoBack2(listFood) {
+        var queryStringIdTimeCal = decodeURIComponent(window.location.search);
+        window.location.href = "CaloriesScreen.html" + queryStringIdTimeCal + "?" + listFood;
+    }
+
+    function getFood(clicked_id) {
+        window.vm.getFood(clicked_id);
+    }
+
+    function printFood(ob) {
+        var queryStringIdTime = decodeURIComponent(window.location.search);
+        var queryString = "?" + ob + queryStringIdTime;
+
+        window.location.href = "chosefood.html" + queryString;
+    }
+
+
+</script>
+</body>
+</html>

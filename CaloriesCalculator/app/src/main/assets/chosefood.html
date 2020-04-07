@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>chosefood</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/my-custom-theme.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="css/my-custom-theme.min.css"/>
+    <link rel="stylesheet"
+          href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+<div> Please choose what you ate:
+
+
+</div>
+<style>
+
+    body {
+        background: transparent;
+        color: none;
+        background-image: url('background.jpg');
+
+    }
+
+</style>
+<script>
+
+    var queryString = decodeURIComponent(window.location.search);
+    queryString = queryString.substring(2);
+    var queries = queryString.split("?");
+    var idUser = queries[1];
+    var Time = queries[3];
+    var calories = queries[2];
+
+    var food = queries[0].substring(0, queries[0].length - 1);
+    foodArray = food.split(",");
+
+
+    for (var i = 0; i < foodArray.length; i++) {
+        var checkBox = document.createElement("input");
+        var label = document.createElement("label");
+        checkBox.type = "checkbox";
+        checkBox.value = foodArray[i];
+        checkBox.id = i.toString();
+        document.body.appendChild(checkBox);
+        document.body.appendChild(label);
+        if (i == (foodArray.length - 1)) {
+            label.appendChild(document.createTextNode(foodArray[i].substring(0, (foodArray[i].length))));
+        } else {
+            label.appendChild(document.createTextNode(foodArray[i]));
+        }
+        checkBox.style.marginRight = "55px"
+        checkBox.style.marginTop = "0.12px"
+        label.style.marginBottom = "30px"
+        label.style.marginLeft = "40px";
+    }
+
+    function MealAdded(ob) {
+        ob = ob.substring(2);
+        var queries = ob.split("+");
+        var calories = queries[1];
+        var AllMeals = queries[2];
+        window.location.href = "CaloriesScreen.html" + "?" + idUser + "?" + calories + "?" + Time + "?" + AllMeals;
+    }
+
+    function GetSelected() {
+        var selectedFood = new Array()
+        var count = 0;
+        for (var j = 0; j < foodArray.length; j++) {
+            var x = document.getElementById(j.toString()).checked;
+            if (x == true) {
+                selectedFood[count] = (document.getElementById(j.toString()).value);
+                count++;
+            }
+        }
+        window.vm.AddMeals(selectedFood, idUser, Time);
+    }
+
+    function goBack() {
+        window.location.href = "AddMeal.html" + "?" + idUser + "?" + calories + "?" + Time;
+    }
+
+
+</script>
+<a href="" class="ui-btn ui-btn-inline ui-btn-w" onclick="goBack()" data-ajax="false">Back</a>
+<a href="" class="ui-btn ui-btn-inline ui-btn-w" id="add" onclick="GetSelected()" data-ajax="false">Add</a>
+</html>

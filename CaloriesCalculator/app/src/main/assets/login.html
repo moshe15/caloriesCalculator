@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/my-custom-theme.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="css/my-custom-theme.min.css"/>
+    <link rel="stylesheet"
+          href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+</head>
+
+<body>
+
+<style>
+
+    body {
+        background: transparent;
+        color: none;
+        background-image: url('background.jpg');
+
+    }
+
+</style>
+
+<div data-role="page" id="login" data-theme="a" data-dom-cache="true">
+    <div data-role="content">
+        <font size="6.5">
+            <p><b>Calories Calculator </b></p></font>
+        <font size="4">
+            <b>Please Enter Your Id:</b></font>
+        <input type="number" name="userid" id="id" maxlength="9" size="35"><br>
+        <a class="ui-btn ui-btn-inline ui-btn-w" onclick="fetchUsers()"
+           data-ajax="false">Register</a>
+        <a class="ui-btn ui-btn-inline ui-btn-w" onclick="fetchUsers()">Login</a>
+    </div>
+
+</div>
+
+<script>
+
+    function fetchUsers() {
+        var ob = document.getElementById("id").value;
+        window.vm.fetchUsers(ob);
+    }
+
+    function checkIfUserExist(response) {
+        var responseArray = response.split("+");
+        if (responseArray[0] == "true") {
+            var ob = document.getElementById("id").value;
+            var queryString = "?" + ob + "?" + responseArray[1] + "?" + responseArray[2];
+            window.location.href = "CaloriesScreen.html" + queryString;
+        }
+        if (responseArray[0] == "false") {
+            location.href = 'register.html';
+        }
+    }
+
+</script>
+
+</body>
+</html>
