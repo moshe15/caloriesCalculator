@@ -31,7 +31,7 @@ Go to **File -> New -> Project from Version Control -> Git**
 
 ### App Screens
 
-<iframe width="576" height="370" src="https://www.youtube.com/embed/_cx4ohANBEU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_cx4ohANBEU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Author
 * **Moshiko, Chen and Mor ☺.** - *Initial work* - [Github](https://github.com/moshe15), [Linkedin](http://www.linkedin.com/in/moshiko-davila-618718166)
