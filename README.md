@@ -30,8 +30,10 @@ Go to **File -> New -> Project from Version Control -> Git**
 -	`Run directly` -  Connect Android device or use AVD. Run -> Run 
 
 ### App Screens
+<video controls="controls"  width="250" height="450">
+    <source src="https://youtu.be/_cx4ohANBEU" type="video/mp4" />   
+</video>
 
-<source src="https://youtu.be/_cx4ohANBEU" height="450" width="250">
 
 ## Author
 * **Moshiko, Chen and Mor ☺.** - *Initial work* - [Github](https://github.com/moshe15), [Linkedin](http://www.linkedin.com/in/moshiko-davila-618718166)
