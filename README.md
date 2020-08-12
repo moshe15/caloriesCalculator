@@ -21,8 +21,9 @@ https://github.com/moshe15/caloriesCalculator
 Go to File -> New -> Project from Version Control -> Git
 
 # Run on Android
-APK - Using Android Studio. Build -> Build Bundle(s) / APK(s) -> Build APK(s)
-Run directly - Connect Android device or use AVD. Run -> Run
+-	`APK` - Using Android Studio. Build -> Build Bundle(s) / APK(s) -> Build APK(s)
+-	`Run directly` -  Connect Android device or use AVD. Run -> Run 
+
 # App Screens
 
 # Author
