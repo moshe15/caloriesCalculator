@@ -30,7 +30,7 @@ Go to **File -> New -> Project from Version Control -> Git**
 -	`Run directly` -  Connect Android device or use AVD. Run -> Run 
 
 ### App Screens
-![Calories Calculator](Calories Calculator.gif)
+[Calories Calculator](Calories Calculator.gif)
 
 ## Author
 * **Moshiko, Chen and Mor ☺.** - *Initial work* - [Github](https://github.com/moshe15), [Linkedin](http://www.linkedin.com/in/moshiko-davila-618718166)
